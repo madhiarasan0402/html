@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Water Resupply Order - Street Food Vendors</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Water Resupply for Street Food Vendors</h1>
+      <p>
+        Running low on water? Order your essential supplies quickly and easily
+        to keep your stall running smoothly!
+      </p>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1549247738-4e390c2a5135?auto=format&fit=crop&q=80&w=400&h=200&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHwxNzIwNTcwNTE3fDA&ixlib=rb-4.0.3"
+            alt="20 Liter Water Bottle"
+            class="product-image"
+          />
+          <div class="product-info">
+            <h2>20 Liter Water Bottle</h2>
+            <p>
+              Standard size for daily operations. High-quality purified drinking
+              water for all your needs.
+            </p>
+            <div class="price">₹70.00</div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1596765796030-ff6f991f8931?auto=format&fit=crop&q=80&w=400&h=200&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHwxNzIwNTcwNTE3fDA&ixlib=rb-4.0.3"
+            alt="200 Liter Water Drum"
+            class="product-image"
+          />
+          <div class="product-info">
+            <h2>200 Liter Water Drum</h2>
+            <p>
+              Bulk supply for busy vendors or multiple stalls. Ideal for
+              extensive cooking and cleaning tasks.
+            </p>
+            <div class="price">₹650.00</div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1627092120017-d2b516147496?auto=format&fit=crop&q=80&w=400&h=200&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE3fHx8ZW58MHx8fHx8MTcyMDU3MDQ3OXww&ixlib=rb-4.0.3"
+            alt="5 Liter Pack of 6 Bottles"
+            class="product-image"
+          />
+          <div class="product-info">
+            <h2>5 Liter (Pack of 6)</h2>
+            <p>
+              Convenient smaller bottles for easy handling and quick refills,
+              perfect for drinking water.
+            </p>
+            <div class="price">₹210.00</div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1600869353916-b186b51c8810?auto=format&fit=crop&q=80&w=400&h=200&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHwxNzIwNTcwNTE3fDA&ixlib=rb-4.0.3"
+            alt="Water Purification Tablets"
+            class="product-image"
+          />
+          <div class="product-info">
+            <h2>Water Purification Tablets</h2>
+            <p>
+              Emergency purification for any water source. Essential for
+              contingency planning. (Pack of 100)
+            </p>
+            <div class="price">₹120.00</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-form">
+        <h2>Place Your Order</h2>
+        <form id="orderForm" action="#" method="POST">
+          <label for="water-type">Select Water Product:</label>
+          <select id="water-type" name="water_type" required>
+            <option value="">-- Please Select --</option>
+            <option value="20L">20 Liter Water Bottle</option>
+            <option value="200L">200 Liter Water Drum</option>
+            <option value="5L_pack">5 Liter (Pack of 6)</option>
+            <option value="purification_tabs">
+              Water Purification Tablets
+            </option>
+          </select>
+
+          <label for="quantity">Quantity:</label>
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            min="1"
+            value="1"
+            required
+          />
+
+          <button type="submit">Place Order</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Street Food Supplies. All rights reserved.</p>
+      <p>For urgent deliveries, please call: +91 98765 43210</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
