@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Water Resupply for Street Food Vendors</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(120deg, #c3e4fd 0%, #a2d4ab 100%);
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #232323;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 32px auto 0 auto;
+      padding: 0 18px 48px 18px;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 10px 24px 0 rgba(0, 0, 0, 0.06);
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: 700;
+      margin-top: 42px;
+      font-size: 2.1em;
+      color: #2369b2;
+      letter-spacing: 1px;
+    }
+
+    p {
+      text-align: center;
+      color: #53737d;
+      font-size: 1.12em;
+      margin-bottom: 32px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 26px;
+      margin-bottom: 34px;
+    }
+
+    .product-card {
+      background: #f6faff;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px 0 rgba(35, 105, 178, 0.07);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.17s;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 10px 24px 0 rgba(35, 105, 178, 0.12);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-bottom: 2px solid #dde9f7;
+    }
+
+    .product-info {
+      padding: 18px 16px 14px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .product-info h2 {
+      font-size: 1.17em;
+      color: #1661a9;
+      margin-bottom: 9px;
+    }
+
+    .product-info p {
+      font-size: 1em;
+      color: #53737d;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .price {
+      background: #dff3df;
+      color: #297c33;
+      border-radius: 16px;
+      padding: 6px 16px;
+      font-weight: 600;
+      font-size: 1.05em;
+      align-self: flex-start;
+      box-shadow: 0 2px 7px 0 rgba(41, 124, 51, 0.08);
+      margin-top: auto;
+    }
+
+    .order-form {
+      background: #f1f7fc;
+      border-radius: 14px;
+      padding: 24px 24px 10px 24px;
+      max-width: 480px;
+      margin: 0 auto 32px auto;
+      box-shadow: 0 3px 10px 0 rgba(35, 105, 178, 0.06);
+    }
+
+    .order-form h2 {
+      text-align: center;
+      color: #2167a1;
+      margin-bottom: 24px;
+      font-size: 1.25em;
+    }
+
+    form label {
+      display: block;
+      font-weight: 600;
+      color: #3877b2;
+      margin-bottom: 6px;
+      margin-top: 16px;
+    }
+
+    form select,
+    form input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #d7dded;
+      border-radius: 7px;
+      background: #fff;
+      color: #194267;
+      font-size: 1em;
+      margin-bottom: 12px;
+      outline: none;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 10px 0;
+      background: linear-gradient(120deg, #3bb78f 20%, #1661a9 80%);
+      color: #fff;
+      font-family: inherit;
+      font-weight: 700;
+      border: none;
+      border-radius: 7px;
+      font-size: 1.1em;
+      margin-top: 8px;
+      cursor: pointer;
+      box-shadow: 0 3px 8px 0 rgba(51, 186, 143, 0.09);
+      transition: background 0.2s;
+    }
+
+    button[type="submit"]:hover {
+      opacity: 0.92;
+      background: linear-gradient(120deg, #1661a9 40%, #3bb78f 80%);
+    }
+
+    footer {
+      text-align: center;
+      color: #4971b8;
+      font-size: 0.98em;
+      padding: 22px 0 16px 0;
+      background: rgba(243, 250, 255, 0.85);
+      border-top: 1px solid #e0eef7;
+      border-radius: 0 0 24px 24px;
+      margin-top: -24px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 6px;
+      }
+
+      .product-grid {
+        gap: 17px;
+      }
+
+      .order-form {
+        padding: 18px 6px;
+      }
+
+      h1 {
+        font-size: 1.6em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>
+      <span style="color:#359045;">&#128167;</span> Water Resupply for Street Food Vendors
+    </h1>
+    <p>
+      Running low on water? <br>
+      <b>Order your essential supplies quickly</b> and keep your stall running smoothly!
+    </p>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1549247738-4e390c2a5135?auto=format&fit=crop&q=80&w=400&h=200"
+          alt="20 Liter Water Bottle" class="product-image" />
+        <div class="product-info">
+          <h2>20 Liter Water Bottle</h2>
+          <p>Standard size for daily operations. High-quality purified drinking water for all your needs.</p>
+          <div class="price">&#8377;20.00</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1596765796030-ff6f991f8931?auto=format&fit=crop&q=80&w=400&h=200"
+          alt="200 Liter Water Drum" class="product-image" />
+        <div class="product-info">
+          <h2>200 Liter Water Drum</h2>
+          <p>Bulk supply for busy vendors/multiple stalls. Ideal for extensive cooking and cleaning tasks.</p>
+          <div class="price">&#8377;650.00</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1627092120017-d2b516147496?auto=format&fit=crop&q=80&w=400&h=200"
+          alt="5 Liter bottles (pack of 6)" class="product-image" />
+        <div class="product-info">
+          <h2>5 Liter (Pack of 6)</h2>
+          <p>Smaller bottles for easy handling/quick refills, perfect for drinking water.</p>
+          <div class="price">&#8377;420.00</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1600869353916-b186b51c8810?auto=format&fit=crop&q=80&w=400&h=200"
+          alt="Water Purification Tablets" class="product-image" />
+        <div class="product-info">
+          <h2>Water Purification Tablets</h2>
+          <p>Emergency purification for any water source. Pack of 100 for safety and contingency planning.</p>
+          <div class="price">&#8377;120.00</div>
+        </div>
+      </div>
+    </div>
+    <div class="order-form">
+      <h2>Place Your Order</h2>
+      <form id="orderForm" action="#" method="POST">
+        <label for="water-type">Select Water Product:</label>
+        <select id="water-type" name="water_type" required>
+          <option value="">-- Please Select --</option>
+          <option value="20L">20 Liter Water Bottle</option>
+          <option value="200L">200 Liter Water Drum</option>
+          <option value="5L_pack">5 Liter (Pack of 6)</option>
+          <option value="purification_tabs">Water Purification Tablets</option>
+        </select>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" required />
+        <button type="submit">&#128722; Place Order</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2025 Street Food Supplies. All rights reserved.</p>
+    <p>For urgent deliveries, call: <b>+91 98765 43210</b></p>
+  </footer>
+</body>
+
+</html>
