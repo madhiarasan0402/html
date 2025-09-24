@@ -1,0 +1,126 @@
+import java.time.LocalTime;
+import java.util.*;
+
+class Professor {
+    String id;
+    String name;
+
+    Professor(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+
+class Course {
+    String id;
+    String name;
+
+    Course(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+
+class ClassSchedule {
+    Professor professor;
+    Course course;
+    String dayOfWeek;
+    LocalTime startTime;
+    LocalTime endTime;
+
+    ClassSchedule(Professor professor, Course course, String dayOfWeek,
+                  LocalTime startTime, LocalTime endTime) {
+        this.professor = professor;
+        this.course = course;
+        this.dayOfWeek = dayOfWeek;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
+
+    boolean conflictsWith(ClassSchedule other) {
+        if (!this.dayOfWeek.equalsIgnoreCase(other.dayOfWeek)) return false;
+        return !(this.endTime.isBefore(other.startTime) || this.startTime.isAfter(other.endTime));
+    }
+
+    @Override
+    public String toString() {
+        return professor.name + " teaching " + course.name +
+                " on " + dayOfWeek + " (" + startTime + " - " + endTime + ")";
+    }
+}
+
+class TimetableConflictChecker {
+    public void checkConflicts(List<ClassSchedule> schedules) {
+        Map<String, List<ClassSchedule>> profSchedules = new HashMap<>();
+
+        for (ClassSchedule cs : schedules) {
+            profSchedules.computeIfAbsent(cs.professor.id, k -> new ArrayList<>()).add(cs);
+        }
+
+        for (Map.Entry<String, List<ClassSchedule>> entry : profSchedules.entrySet()) {
+            List<ClassSchedule> profClasses = entry.getValue();
+            Professor prof = profClasses.get(0).professor;
+
+            for (int i = 0; i < profClasses.size(); i++) {
+                for (int j = i + 1; j < profClasses.size(); j++) {
+                    if (profClasses.get(i).conflictsWith(profClasses.get(j))) {
+                        System.out.println("\n❌ Conflict for " + prof.name + ":");
+                        System.out.println("   " + profClasses.get(i));
+                        System.out.println("   " + profClasses.get(j));
+                    }
+                }
+            }
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        List<ClassSchedule> schedules = new ArrayList<>();
+
+        System.out.print("Enter number of schedules: ");
+        int n = sc.nextInt();
+        sc.nextLine(); // consume newline
+
+        for (int i = 1; i <= n; i++) {
+            System.out.println("\nEnter details for schedule " + i + ":");
+
+            System.out.print("Professor ID: ");
+            String pid = sc.nextLine();
+
+            System.out.print("Professor Name: ");
+            String pname = sc.nextLine();
+            Professor prof = new Professor(pid, pname);
+
+            System.out.print("Course ID: ");
+            String cid = sc.nextLine();
+
+            System.out.print("Course Name: ");
+            String cname = sc.nextLine();
+            Course course = new Course(cid, cname);
+
+            System.out.print("Day of Week (e.g. Monday): ");
+            String day = sc.nextLine();
+
+            System.out.print("Start Time (HH:MM): ");
+            String start = sc.nextLine();
+
+            System.out.print("End Time (HH:MM): ");
+            String end = sc.nextLine();
+
+            schedules.add(new ClassSchedule(
+                    prof,
+                    course,
+                    day,
+                    LocalTime.parse(start),
+                    LocalTime.parse(end)
+            ));
+        }
+
+        TimetableConflictChecker checker = new TimetableConflictChecker();
+        checker.checkConflicts(schedules);
+
+        sc.close();
+    }
+}
